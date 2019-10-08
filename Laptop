@@ -1,0 +1,242 @@
+using System;
+
+namespace ComputerModels
+{
+    abstract class Laptop
+    {
+        public string modelname1 = null;
+        public int modelyear1 = 0;
+        public decimal price1 = 0;
+        public string processor1 = null;
+        public int ram1 = 0;
+        public string memory1 = null;
+        public int memsize1 = 0;
+        public double size1 = 0;
+        public string color1 = null;
+
+        public abstract string ModelName();
+        public abstract int ModelYear();
+        public abstract decimal Price();
+        public abstract string Processor();
+        public abstract int RAM();
+        public abstract string Memory();
+        public abstract int MemSize();
+        public abstract double Size();
+        public abstract string Color();
+
+
+    }
+
+    
+    class Asus : Laptop
+    {
+        public override string ModelName()
+        {
+            return modelname1 = "Asus Zenbook Pro 15 UX550GE";
+        }
+        public override int ModelYear()
+        {
+            return modelyear1 = 2019;
+        }
+        public override decimal Price()
+        {
+            return price1 = 2299.99m;
+        }
+        public override string Processor()
+        {
+            return processor1 = "Intel core i9";
+        }
+        public override int RAM()
+        {
+            return ram1 = 16;
+        }
+        public override string Memory()
+        {
+            return memory1 = "SSD"; 
+        }
+        public override int MemSize()
+        {
+            return memsize1 = 16;
+        }
+        public override double Size()
+        {
+            return size1 = 15.6;
+        }
+        public override string Color()
+        {
+            return color1 = "Silver";
+        }
+    }
+    class Dell : Laptop
+    {
+        public override string ModelName()
+        {
+            return modelname1 = "Dell Inspiron 11 3000 Laptop";
+        }
+        public override int ModelYear()
+        {
+            return modelyear1 = 2019;
+        }
+        public override decimal Price()
+        {
+            return price1 = 179.99m;
+        }
+        public override string Processor()
+        {
+            return processor1 = "AMD A6";
+        }
+        public override int RAM()
+        {
+            return ram1 = 4;
+        }
+        public override string Memory()
+        {
+            return memory1 = "HDD";
+        }
+        public override int MemSize()
+        {
+            return memsize1 = 500;
+        }
+        public override double Size()
+        {
+            return size1 = 11.6;
+        }
+        public override string Color()
+        {
+            return color1 = "Black";
+        }
+    }
+
+
+    
+    class HP : Laptop
+    {
+        public override string ModelName()
+        {
+            return modelname1 = "HP 15z Laptop";
+        }
+        public override int ModelYear()
+        {
+            return modelyear1 = 2019;
+        }
+        public override decimal Price()
+        {
+            return price1 = 309.99m;
+        }
+        public override string Processor()
+        {
+            return processor1 = "AMD A9-9425 Dual Core";
+        }
+        public override int RAM()
+        {
+            return ram1 = 8;
+        }
+        public override string Memory()
+        {
+            return memory1 = "HDD";
+        }
+        public override int MemSize()
+        {
+            return memsize1 = 1000;
+        }
+        public override double Size()
+        {
+            return size1 = 15.6;
+        }
+        public override string Color()
+        {
+            return color1 = "Black";
+        }
+    }
+    class Mac : Laptop
+    {
+        public override string ModelName()
+        {
+            return modelname1 = "MacBook Air";
+        }
+        public override int ModelYear()
+        {
+            return modelyear1 = 2019;
+        }
+        public override decimal Price()
+        {
+            return price1 = 1000.99m;
+        }
+        public override string Processor()
+        {
+            return processor1 = "Intel Core i5";
+        }
+        public override int RAM()
+        {
+            return ram1 = 8;
+        }
+        public override string Memory()
+        {
+            return memory1 = "SSD";
+        }
+        public override int MemSize()
+        {
+            return memsize1 = 8;
+        }
+        public override double Size()
+        {
+            return size1 = 11.97;
+        }
+        public override string Color()
+        {
+            return color1 = "Gold, Space Gray, or Silver";
+        }
+    }
+    
+
+    class UserOutput 
+    {
+        public void Output(Laptop x)
+        {
+            Console.WriteLine("Model: {0}", x.ModelName());
+            Console.WriteLine("Model Year: {0}", x.ModelYear());
+            Console.WriteLine("Price: ${0}", x.Price());
+            Console.WriteLine("Processor: {0}", x.Processor());
+            Console.WriteLine("RAM: {0} GB", x.RAM());
+            Console.WriteLine("Memory Type: {0}", x.Memory());
+            Console.WriteLine("Memory Size: {0} GB", x.MemSize());
+            Console.WriteLine("Size: {0} in.", x.Size());
+            Console.WriteLine("Color: {0}", x.Color());
+            Console.ReadKey();
+            
+        }
+    }
+    class UserEnd
+    {
+        static void Main(string[] args)
+        {
+            //objects
+            Asus a = new Asus();
+            Dell d = new Dell();
+            HP h = new HP();
+            Mac m = new Mac();
+            UserOutput output = new UserOutput();
+
+            Console.WriteLine("Find a laptop. Type 'a' for Asus, 'd' for Dell, 'h' for HP, and 'm' for Mac.");
+            string input = Console.ReadLine();
+
+            switch (input)
+            {
+                case "a":
+                    output.Output(a);
+                    break;
+                case "d":
+                    output.Output(d);
+                    break;
+                case "h":
+                    output.Output(h);
+                    break;
+                case "m":
+                    output.Output(m);
+                    break;
+            }
+
+
+        }
+    }
+}
